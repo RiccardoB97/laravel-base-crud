@@ -82,6 +82,7 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        return view('comics.update', compact('comic'));
+        
     }
 }
