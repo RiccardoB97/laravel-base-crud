@@ -20,13 +20,16 @@
                 <td><img src="{{$comic->cover}}" width="100" alt=""></td>
                 <td>{{$comic->price}}</td>
                 <td>
-                    <a href="">View</a>
-                    <a href="">Edit</a>
-                    <a href="">Delete</a>
+                    <a href="{{route('comics.show',[$comic->id])}}">View</a>
+                    <a href="{{route('comics.edit',[$comic->id])}}">Edit</a>
+                    <a href="{{route('comics.delete',[$comic->id])}}">Delete</a>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table> 
+</div>
+<div class="container">
+    <a href="{{route('comics.create')}}" type="button" class="btn btn-primary btn-block">Add new Comic</a>
 </div>
 @endsection
