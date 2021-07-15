@@ -12,11 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'PageController@index')->name('home');
 
-Route::get('/', 'ComicController@index')->name('comics');
-Route::get('/create', 'ComicController@create')->name('comics.create');
-Route::post('/', 'ComicController@store')->name('comics.store');
-Route::get('/{comic}', 'ComicController@show')->name('comics.show');
-Route::get('/{comic}/edit', 'ComicController@edit')->name('comics.edit');
-Route::put('/{comic}', 'ComicController@update')->name('comics.update');
-Route::delete('/{comic}', 'ComicController@destroy')->name('comics.delete');
+Route::get('/comics', 'ComicController@index')->name('comics.index');
+Route::get('comics/create', 'ComicController@create')->name('comics.create');
+Route::post('/comics', 'ComicController@store')->name('comics.store');
+Route::get('comics/{comic}', 'ComicController@show')->name('comics.show');
+Route::get('comics/{comic}/edit', 'ComicController@edit')->name('comics.edit');
+Route::put('comics/{comic}', 'ComicController@update')->name('comics.update');
+Route::delete('comics/{comic}', 'ComicController@destroy')->name('comics.delete');

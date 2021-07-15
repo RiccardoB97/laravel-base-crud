@@ -71,7 +71,8 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        return view('comics.update', compact('comic', 'requeest'));
+
+        ddd($request->all(), $comic);
     }
 
     /**
