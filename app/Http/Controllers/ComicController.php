@@ -14,7 +14,6 @@ class ComicController extends Controller
      */
     public function index()
     {
-
         $comics = Comic::all();
         return view('comics.index', compact('comics'));
     }
@@ -76,8 +75,8 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-
-        ddd($request->all(), $comic);
+        $comic->update($request->all()); 
+        return redirect()->route('comics.index');
     }
 
     /**
