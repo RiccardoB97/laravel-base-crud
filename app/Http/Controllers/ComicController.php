@@ -37,7 +37,12 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        return view('comics.store');
+        $comic = new Comic();
+        $comic->title = $request->title;
+        $comic->cover=$request->cover;
+        $comic->price=$request->price;
+        $comic->save();
+        return redirect()->route('comics.index');
     }
 
     /**
