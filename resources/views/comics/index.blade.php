@@ -20,9 +20,13 @@
                 <td><img src="{{$comic->cover}}" width="100" alt=""></td>
                 <td>{{$comic->price}}</td>
                 <td>
-                    <a href="{{route('comics.show',[$comic->id])}}">View</a>
-                    <a href="{{route('comics.edit',[$comic->id])}}">Edit</a>
-                    <a href="{{route('comics.delete',[$comic->id])}}">Delete</a>
+                    <a href="{{route('comics.show',$comic->id)}}">View</a>
+                    <a href="{{route('comics.edit',$comic->id)}}">Edit</a>
+                    <form action="{{route('comics.destroy', $comic->id)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
